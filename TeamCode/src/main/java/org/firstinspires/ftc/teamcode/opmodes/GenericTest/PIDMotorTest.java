@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.opmodes.GenericTest;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Lib.FTCLib.DcMotor8863;
+import org.firstinspires.ftc.teamcode.Lib.FTCLib.PIDControl;
 
 /**
  * This OpMode runs 2 motors at a given power, one in the opposite direction from the other. 
@@ -14,11 +14,13 @@ import org.firstinspires.ftc.teamcode.Lib.FTCLib.DcMotor8863;
  * This code assumes a DC motor configured with the name "motor"  and "rightShooterMotor"
  *
  */
-@Autonomous(name = "DriveTrainTest", group = "Test")
+@TeleOp(name = "PIDMotorTest", group = "Test")
 //@Disabled
-public class DriveTrainTest extends LinearOpMode {
+public class PIDMotorTest extends LinearOpMode {
 
     DcMotor8863 motor;
+    PIDControl pidControl;
+    int feedback = 0;
     double powerToRunAt = 1.0; // 80% of full speed
 
     @Override
@@ -28,7 +30,7 @@ public class DriveTrainTest extends LinearOpMode {
         // Instantiate and initialize motors
         motor = new DcMotor8863("motor", hardwareMap);
         motor.setMotorType(DcMotor8863.MotorType.ANDYMARK_40);
-        motor.setUnitsPerRev(360);
+        motor.setMovementPerRev(360);
         motor.setDesiredEncoderCount(0);
         motor.setEncoderTolerance(5);
         motor.setNextMotorState(DcMotor8863.NextMotorState.FLOAT);
@@ -37,6 +39,8 @@ public class DriveTrainTest extends LinearOpMode {
         motor.setMaxMotorPower(1);
 
         motor.setDirection(DcMotor.Direction.FORWARD);
+
+        pidControl = new PIDControl(6,597.1);
         
         // Wait for the start button
         telemetry.addData(">", "Press Start to run Motors." );
@@ -45,6 +49,8 @@ public class DriveTrainTest extends LinearOpMode {
 
         // Ramp motor speeds till stop pressed.
         while(opModeIsActive()) {
+            // Will not work - needs to have a proper argument!
+            powerToRunAt = pidControl.getCorrection(0);
 
             motor.runWithoutEncoder(powerToRunAt);
 
