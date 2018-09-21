@@ -19,6 +19,13 @@ android {
 }
 
 repositories {
+    // added this because I was getting Could not find com.android.tools.lint:lint-gradle:26.1.4 error
+    // glenn
+    repositories {
+        // The order in which you list these repositories matter.
+        google()
+        jcenter()
+    }
     flatDir {
         dirs '../libs'
     }
