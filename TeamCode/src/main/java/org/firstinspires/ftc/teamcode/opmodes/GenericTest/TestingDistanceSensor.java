@@ -30,7 +30,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
 TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package org.firstinspires.ftc.robotcontroller.external.samples;
+package org.firstinspires.ftc.teamcode.opmodes.GenericTest;
 
 import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -41,7 +41,7 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 /**
- * {@link SensorREV2mDistance} illustrates how to use the REV Robotics
+ * {@link TestingDistanceSensor} illustrates how to use the REV Robotics
  * Time-of-Flight Range Sensor.
  *
  * The op mode assumes that the range sensor is configured with a name of "sensor_range".
@@ -51,16 +51,16 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
  *
  * @see <a href="http://revrobotics.com">REV Robotics Web Page</a>
  */
-@TeleOp(name = "Sensor: REV2mDistance", group = "Sensor")
-@Disabled
-public class SensorREV2mDistance extends LinearOpMode {
+@TeleOp(name = "Sensor: LaserDistance", group = "Sensor")
+//@Disabled
+public class TestingDistanceSensor extends LinearOpMode {
 
     private DistanceSensor sensorRange;
 
     @Override
     public void runOpMode() {
         // you can use this as a regular DistanceSensor.
-        sensorRange = hardwareMap.get(DistanceSensor.class, "sensor_range");
+        sensorRange = hardwareMap.get(DistanceSensor.class, "sensor_distance");
 
         // you can also cast this to a Rev2mDistanceSensor if you want to use added
         // methods associated with the Rev2mDistanceSensor class.
