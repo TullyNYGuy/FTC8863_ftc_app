@@ -39,6 +39,7 @@ public class RoverRuckusDemoRobot {
     private Telemetry telemetry;
 
     public DcMotor8863 liftMotor;
+
     //*********************************************************************************************
     //          GETTER and SETTER Methods
     //

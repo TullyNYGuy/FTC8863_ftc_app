@@ -209,8 +209,10 @@ public class TestLiftWithTeleop extends LinearOpMode {
 
             if (gamepad1a.buttonPress(gamepad1.a)) {
                 if (gamepad1a.isCommand1()) {
+                    robot.liftMotor.setPower(1);
                 }
                 if (gamepad1a.isCommand2()) {
+                    robot.liftMotor.setPower(0);
                 }
                 // this was a new button press, not a button held down for a while
                 // put the command to be executed here
@@ -218,8 +220,10 @@ public class TestLiftWithTeleop extends LinearOpMode {
 
             if (gamepad1b.buttonPress(gamepad1.b)) {
                 if (gamepad1b.isCommand1()) {
+                    robot.liftMotor.setPower(-1);
                 }
                 if (gamepad1b.isCommand2()) {
+                    robot.liftMotor.setPower(0);
                 }
                 // this was a new button press, not a button held down for a while
                 // put the command to be executed here
