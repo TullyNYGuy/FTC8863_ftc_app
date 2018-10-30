@@ -133,6 +133,7 @@ public class TestSensorREVColorDistance extends LinearOpMode {
             });
 
             telemetry.update();
+            idle();
         }
 
         // Set the panel back to the default color
