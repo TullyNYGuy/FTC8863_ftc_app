@@ -15,4 +15,6 @@ android {
     compileSdkVersion 19
 }
 dependencies {
+    //NOTE: this (0.22) is the correct version, the below screenshot is outdated
+    compile 'org.openftc:ftc-opmode-tuner-common:0.22'
 }
