@@ -17,4 +17,5 @@ android {
 dependencies {
     //NOTE: this is the correct version, the below screenshot is outdated
     compile 'org.openftc:rev-extensions-2:1.1'
+    compile 'org.openftc:ftc-opmode-tuner-common:0.22'
 }
