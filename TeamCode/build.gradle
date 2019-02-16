@@ -19,3 +19,6 @@ dependencies {
     compile 'org.openftc:rev-extensions-2:1.1'
     compile 'org.openftc:ftc-opmode-tuner-common:0.22'
 }
+repositories {
+    mavenCentral()
+}
